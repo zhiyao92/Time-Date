@@ -10,16 +10,23 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var statusLabel: UILabel!
+    @IBOutlet weak var dateLabel: UIDatePicker!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func dateButton(_ sender: Any) {
+        
+        let format = DateFormatter()
+        format.dateStyle = .short
+        format.timeStyle = .short
+        
+        let status = format.string(from: dateLabel.date)
+        statusLabel.text = status
     }
-
-
+    
 }
 
